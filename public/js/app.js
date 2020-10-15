@@ -37346,4 +37346,3 @@ module.exports = __webpack_require__(/*! C:\sites_laravel\student_administration
 /***/ })
 
 /******/ });
-//# sourceMappingURL=app.js.map
