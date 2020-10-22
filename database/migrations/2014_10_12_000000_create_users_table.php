@@ -17,11 +17,24 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
+            $table->boolean('admin')->nullable();
             $table->string('password');
-            $table->rememberToken();
-            $table->timestamps();
+            $table->timestamp('created_at') ->nullable();
+            $table->timestamp('email_verified_at')->nullable();
         });
+
+        DB::table('users')->insert(
+            [
+                [
+                    'name' => 'Michaël Cloots',
+                    'email' => 'michael.cloots@gmail.com',
+                    'admin' => true,
+                    'password' => Hash::make('admin1234'),
+                    'created_at' => now(),
+                    'email_verified_at' => now()
+                ]
+            ]
+        );
     }
 
     /**
